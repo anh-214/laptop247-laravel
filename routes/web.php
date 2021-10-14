@@ -6,7 +6,7 @@ use App\Http\Controllers\Web\MainController;
 use App\Http\Controllers\Web\CategoryController;
 use App\Http\Controllers\Web\ProductController;
 use App\Http\Controllers\Web\CartController;
-
+use App\Http\Controllers\Web\LiveSearchController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -42,6 +42,7 @@ Route::get('/home',[MainController::class,'home']);
 Route::get('/',function(){
     return redirect('home');
 });
+Route::get('/search',[LiveSearchController::class,'search']);
 
 Route::get('/checkout',[CartController::class,'checkout']);
 Route::get('/contact',[MainController::class,'contact']);
@@ -49,6 +50,8 @@ Route::get('/policy-support',[MainController::class,'policy_support']);
 Route::get('/aboutus',[MainController::class,'aboutUs']);
 
 Route::get('/category/{id}',[CategoryController::class,'index']);
+Route::get('/product/{id}',[ProductController::class,'getUrl']);
+
 Route::get('/category/{category_id}/product/{product_id}',[ProductController::class,'index']);
 
 // cart

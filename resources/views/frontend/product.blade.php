@@ -9,6 +9,7 @@
     <div class="container bg-light">
         <div class="single_product">
             <div class="container-fluid" style=" background-color: #fff; padding: 30px;min-height: 1000px;">
+                {{--  --}}
                 <div class="row">
                     <div class="col-lg-6 order-lg-2 order-1">
                         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -53,7 +54,7 @@
                             {{-- <div class="product-rating"><span class="badge badge-success"><i class="fa fa-star"></i> 4.5 Star</span> <span class="rating-review">35 sao & 45 đánh giá</span></div> --}}
                             <div> <span class="product_price mt-3">{{number_format($product->price)}} đ</span></div>
                             <hr class="singleline">
-                            <div class="mt-3"> 
+                            <div class="mt-3">
                                 <span class="product_info">CPU: {{$product->cpu}}<span>
                                 <br> 
                                 <span class="product_info">Ram: {{$product->ram}}<span>
@@ -87,13 +88,13 @@
                         </div>
                     </div>
                 </div>
+                {{--  --}}
+
                 <div class="row row-underline">
                     <div class="col-md-6"> <span class=" deal-text">Sản phẩm khác</span> </div>
                     <div class="col-md-6"> <a href="#" data-abc="true"> <span class="ml-auto view-all"></span> </a> </div>
                 </div>
                 <div class="row">
-                    
-
                             @foreach ($randoms as $random )
                             <div class="col-md-3 padding-0">
                                 <div class="single-product">
@@ -113,7 +114,6 @@
                                 </div>
                             </div>
                             @endforeach
-                     
                 </div>
             </div>
         </div>

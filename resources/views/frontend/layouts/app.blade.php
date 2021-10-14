@@ -154,6 +154,20 @@
             background:#3f3fb6;
             color:#fff;
         }
+        #resultSearch {
+			position: absolute;
+			top:100%;
+			
+			z-index:9999;
+			box-shadow: 10px 10px 10px #5c5b5b85;
+			display:none
+		}
+		#resultSearch ul li a:hover {
+			font-weight: bolder
+		} 
+		#resultSearch ul li div.col-9 {
+			text-align: left
+		}
     </style>
 </head>
 <body>
@@ -205,6 +219,27 @@
                     }
                     toastr["error"]("{{session('fail')}}")
             @endif
+            $('#search').on('keyup',function(){
+                $value = $(this).val();
+				if ($value != ''){
+					$('#resultSearch').show();
+					$.ajax({
+						type: 'get',
+						url: "{{url('search')}}",
+						data: {
+							'search': $value,
+						},
+						success:function(data){
+							$('#resultSearch ul').html(data);
+						}
+					});
+				} else {
+					$('#resultSearch ul').html('');
+					$('#resultSearch').hide();
+				}
+                
+            })
+            $.ajaxSetup({ headers: { 'csrftoken' : '{{ csrf_token() }}' } });
         })
     </script>
     @stack('js')

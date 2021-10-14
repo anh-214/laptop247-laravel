@@ -1,12 +1,16 @@
 <header class="container bg-light">
     <div class="mo-dau row">
         <div class="col-md-8">
-            <form>
-                <input type="text" name="search" placeholder="Tìm kiếm sản phẩm...">
+            <form method="GET" autocomplete="off"> 
+                <input type="text" name="search" placeholder="Tìm kiếm sản phẩm..." id="search">
                 <button type="submit">
                     <span class="icon"><i class="fa fa-search"></i></span>
                 </button>
             </form>
+            <div class="mt-2 p-2 bg-light" id="resultSearch">
+                <ul>
+                </ul>
+            </div>
         </div>
         <div class="user d-flex align-items-center col-md-4 mt-3">
             @if(Auth::guard('web')->check())

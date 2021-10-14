@@ -16,4 +16,8 @@ class ProductController extends Controller
         $product = Product::where('id',$product_id)->first();
         return view('frontend.product',compact('product','category','randoms'));
     }
+    public function getUrl($id){
+        $category_id = Product::where('id',$id)->first()->category_id;
+        return redirect(url('category/'.$category_id.'/product/'.$id));
+    }
 }
